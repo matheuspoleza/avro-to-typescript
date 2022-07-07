@@ -1,0 +1,158 @@
+{
+  "type": "record",
+  "name": "Avro",
+  "fields": [
+    {
+      "name": "reqGUID",
+      "type": "string"
+    },
+    {
+      "name": "intents",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "intents_record",
+          "type": "record",
+          "fields": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "inputs",
+              "type": {
+                "type": "array",
+                "items": {
+                  "name": "inputs_record",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "text",
+                      "type": "string"
+                    },
+                    {
+                      "name": "slots",
+                      "type": {
+                        "type": "array",
+                        "items": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "slots",
+              "type": {
+                "type": "array",
+                "items": {
+                  "name": "slots_record_nested",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "type": "string"
+                    },
+                    {
+                      "name": "dialog",
+                      "type": {
+                        "name": "dialog",
+                        "type": "record",
+                        "fields": [
+                          {
+                            "name": "prompt",
+                            "type": {
+                              "type": "array",
+                              "items": "string",
+                              "default": []
+                            }
+                          },
+                          {
+                            "name": "confirm",
+                            "type": {
+                              "type": "array",
+                              "items": "string",
+                              "default": []
+                            }
+                          },
+                          {
+                            "name": "utterances",
+                            "type": {
+                              "type": "array",
+                              "items": "string",
+                              "default": []
+                            }
+                          },
+                          {
+                            "name": "confirmEnabled",
+                            "type": "boolean"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "required",
+                      "type": "boolean"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "platform",
+      "type": "string"
+    },
+    {
+      "name": "slots",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "slots_record",
+          "type": "record",
+          "fields": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "type",
+              "type": {
+                "name": "type",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "value",
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "color",
+              "type": "string"
+            },
+            {
+              "name": "inputs",
+              "type": {
+                "type": "array",
+                "items": "string"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
